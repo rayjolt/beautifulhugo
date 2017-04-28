@@ -17,6 +17,12 @@ title = "Google+"
 icon = "fa-google-plus"
 
 [[social_icons]]
+id = "wikipedia"
+url = "https://en.wikipedia.org/wiki/User:%s"
+title = "Wikipedia"
+icon = "fa-wikipedia-w"
+
+[[social_icons]]
 id = "github"
 url = "https://github.com/%s"
 title = "GitHub"
