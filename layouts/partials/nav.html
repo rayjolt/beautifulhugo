@@ -36,7 +36,15 @@
               <div class="navlinks-children">
                 {{ range .Site.Languages }}
                   {{ if not (eq .Lang $.Site.Language.Lang) }}
-                  <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+                    {{ $languageName := .LanguageName }}
+                    {{ $translations := where $.Translations "Lang" .Lang }}
+                    {{ if $translations }}
+                      {{ range $translations }}
+                        <a href="{{ .Permalink }}" lang="{{ .Lang }}">{{ default .Lang $languageName }}</a>
+                      {{ end }}
+                    {{ else }}
+                        <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang $languageName }}</a>
+                    {{ end }}
                   {{ end }}
                 {{ end }}
               </div>
@@ -45,7 +53,15 @@
             <li>
               {{ range .Site.Languages }}
                 {{ if not (eq .Lang $.Site.Language.Lang) }}
-                  <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+                  {{ $translations := where $.Translations "Lang" .Lang }}
+                  {{ $languageName := .LanguageName }}
+                  {{ if $translations }}
+                    {{ range $translations }}
+                      <a href="{{ .Permalink }}" lang="{{ .Lang }}">{{ default .Lang $languageName }}</a>
+                    {{ end }}
+                  {{ else }}
+                      <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang $languageName }}</a>
+                  {{ end }}
                 {{ end }}
               {{ end }}
             </li>
