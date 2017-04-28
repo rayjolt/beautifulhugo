@@ -1,14 +1,10 @@
 <span class="post-meta">
-  {{ default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format | i18n "postedOnDate" }}
-  {{ if .Params.tags -}}
-    &nbsp;&bull;&nbsp; {{ partial "tag-list.html" . }}
+  {{ partial "post_date.html" . }}
+  {{ with partial "tag-list.html" . | chomp -}}
+    &nbsp;&bull;&nbsp; {{ . }}
   {{- end }}
-  {{ if .IsTranslated -}}
-    {{- $sortedTranslations := sort .Translations "Site.Language.Weight" -}}
-    {{- $links := apply $sortedTranslations "partial" "translation_link.html" "." -}}
-    {{- $cleanLinks := apply $links "chomp" "." -}}
-    {{- $linksOutput := delimit $cleanLinks (i18n "translationsSeparator") -}}
-    &nbsp;&bull;&nbsp; {{ i18n "translationsLabel" }}{{ $linksOutput }}
+  {{ with partial "post_translations.html" . | chomp -}}
+    &nbsp;&bull;&nbsp; {{ . }}
   {{- end }}
 </span>
 

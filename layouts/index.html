@@ -36,7 +36,12 @@
                 {{ end }}
               </a>
 
-              {{ partial "post_meta.html" . }}
+              <span class="post-meta">
+                {{ partial "post_date" . }}
+                {{ with partial "post_translations.html" . | chomp }}
+                  &nbsp;&bull;&nbsp; {{ . }}
+                {{ end }}
+              </span>
               <div class="post-entry">
                 {{ if .Truncated }}
                   {{ .Summary }}
@@ -48,7 +53,7 @@
 
               {{ if .Params.tags }}
                 <span class="post-meta">
-                  {{ partial "tag-list.html" . }}
+                  {{ partial "tag-list.html" . | chomp }}
                 </span>
               {{ end }}
             </article>
