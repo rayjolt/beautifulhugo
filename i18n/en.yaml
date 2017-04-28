@@ -4,7 +4,7 @@
 - id: postedOnDate
   translation: "Posted on {{ .Count }}"
 - id: translationsLabel
-  translation: "Other languages: "
+  translation: ""
 - id: translationsSeparator
   translation: ", "
 - id: readMore
@@ -23,8 +23,10 @@
   translation: "Whoops, this page doesn't exist. Move along. (404 error)"
 
 # Footer
+- id: copyright
+  translation: '© {{ .Site.Author.name }} • {{ .Site.LastChange.Format "2006" }}'
 - id: poweredBy # Accepts HTML
-  translation: '<a href="http://gohugo.io">Hugo v{{ .Hugo.Version }}</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>'
+  translation: 'Proudly powered by <a href="http://gohugo.io">Hugo</a> and the <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> theme'
 
 # Navigation
 - id: toggleNavigation
