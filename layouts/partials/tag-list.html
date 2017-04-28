@@ -1,0 +1,4 @@
+{{ range .Params.tags }}
+  #<a href="{{ $.Site.LanguagePrefix }}/tags/{{ . | urlize }}">{{ . }}</a>
+{{ end }}
+
