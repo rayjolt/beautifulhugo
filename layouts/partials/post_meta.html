@@ -1,5 +1,8 @@
 <span class="post-meta">
   {{ default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format | i18n "postedOnDate" }}
+  {{ if .Lastmod -}}
+    &nbsp;&bull;&nbsp; {{ default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format | i18n "modifiedOnDate" }}
+  {{- end }}
   {{ if .IsTranslated -}}
     {{- $sortedTranslations := sort .Translations "Site.Language.Weight" -}}
     {{- $links := apply $sortedTranslations "partial" "translation_link.html" "." -}}

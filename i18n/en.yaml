@@ -3,6 +3,8 @@
   translation: "January 2, 2006"
 - id: postedOnDate
   translation: "Posted on {{ .Count }}"
+- id: modifiedOnDate
+  translation: "Modified on {{ .Count }}"
 - id: translationsLabel
   translation: "Other languages: "
 - id: translationsSeparator
