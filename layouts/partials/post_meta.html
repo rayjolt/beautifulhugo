@@ -1,5 +1,8 @@
 <span class="post-meta">
   {{ partial "post_date.html" . }}
+  {{ if .Lastmod -}}
+    &nbsp;&bull;&nbsp; {{ default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format | i18n "modifiedOnDate" }}
+  {{- end }}
   {{ with partial "tag-list.html" . | chomp -}}
     &nbsp;&bull;&nbsp; {{ . }}
   {{- end }}
